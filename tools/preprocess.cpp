@@ -39,7 +39,7 @@ long PAGESIZE = 4096;
 
 void generate_edge_grid(std::string input, std::string output, VertexId vertices, int partitions, int edge_type) {
 	int parallelism = std::thread::hardware_concurrency();
-	int edge_unit; 
+	int edge_unit; //一个边的大小 
 	EdgeId edges;
 	switch (edge_type) {
 	case 0:
