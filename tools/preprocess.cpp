@@ -39,15 +39,15 @@ long PAGESIZE = 4096;
 
 void generate_edge_grid(std::string input, std::string output, VertexId vertices, int partitions, int edge_type) {
 	int parallelism = std::thread::hardware_concurrency();
-	int edge_unit; //一条边的大小
+	int edge_unit; 
 	EdgeId edges;
 	switch (edge_type) {
 	case 0:
-		edge_unit = sizeof(VertexId) * 2;
+		edge_unit = sizeof(VertexId) * 2; //边无权值
 		edges = file_size(input) / edge_unit;
 		break;
 	case 1:
-		edge_unit = sizeof(VertexId) * 2 + sizeof(Weight);
+		edge_unit = sizeof(VertexId) * 2 + sizeof(Weight); //边有权值
 		edges = file_size(input) / edge_unit;
 		break;
 	default:
